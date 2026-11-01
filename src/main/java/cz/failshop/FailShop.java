@@ -86,7 +86,7 @@ public final class FailShop extends JavaPlugin {
         if (executor instanceof TabCompleter tab) cmd.setTabCompleter(tab);
     }
 
-    /** Reloads config, language, shops.yml and the daily deals. */
+    /** Reloads config, language, price.yml and the daily deals. */
     public void reloadAll() {
         reloadConfig();
         lang.load();

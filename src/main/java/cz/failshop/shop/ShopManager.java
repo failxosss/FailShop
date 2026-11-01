@@ -1,6 +1,7 @@
 package cz.failshop.shop;
 
 import cz.failshop.FailShop;
+import cz.failshop.util.Heads;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
@@ -18,7 +19,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-/** Loads shops.yml, keeps dynamic price state (data.yml) and answers price questions. */
+/** Loads price.yml, keeps dynamic price state (data.yml) and answers price questions. */
 public final class ShopManager {
 
     private final FailShop plugin;
@@ -43,8 +44,17 @@ public final class ShopManager {
         sellIndex.clear();
         materialIndex.clear();
 
-        File file = new File(plugin.getDataFolder(), "shops.yml");
-        if (!file.exists()) plugin.saveResource("shops.yml", false);
+        File file = new File(plugin.getDataFolder(), "price.yml");
+        File legacy = new File(plugin.getDataFolder(), "shops.yml");
+        if (!file.exists() && legacy.exists()) {
+            // upgrade from the old file name, keep the server owner's prices
+            try {
+                java.nio.file.Files.copy(legacy.toPath(), file.toPath());
+            } catch (IOException e) {
+                plugin.getLogger().warning("Could not copy shops.yml to price.yml: " + e.getMessage());
+            }
+        }
+        if (!file.exists()) plugin.saveResource("price.yml", false);
         YamlConfiguration y = YamlConfiguration.loadConfiguration(file);
 
         ConfigurationSection cs = y.getConfigurationSection("categories");
@@ -56,6 +66,17 @@ public final class ShopManager {
             }
         }
         loadData();
+        prefetchHeads();
+    }
+
+    /** Loads the skins of all nicknames used for heads so the menus show them right away. */
+    private void prefetchHeads() {
+        Heads.prefetch(plugin.getConfig().getString("gui.category-head", ""));
+        Heads.prefetch(plugin.getConfig().getString("gui.item-head", ""));
+        for (ShopCategory c : categories.values()) {
+            Heads.prefetch(c.head());
+            for (ShopItem it : c.items()) Heads.prefetch(it.head());
+        }
     }
 
     private void loadCategory(String cid, ConfigurationSection c) {
@@ -75,7 +96,7 @@ public final class ShopManager {
                 if (s == null) continue;
                 Material m = Material.matchMaterial(s.getString("material", iid));
                 if (m == null || !m.isItem()) {
-                    plugin.getLogger().warning("shops.yml: unknown material in " + cid + "." + iid + ", skipped.");
+                    plugin.getLogger().warning("price.yml: unknown material in " + cid + "." + iid + ", skipped.");
                     continue;
                 }
                 ShopItem it = new ShopItem(

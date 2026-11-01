@@ -51,7 +51,7 @@ public final class MenuBuilder {
 
     public void openMain(Player p) {
         ShopMenu menu = new ShopMenu(ShopMenu.Type.MAIN, null, 0);
-        Inventory inv = Bukkit.createInventory(menu, SIZE, plugin.raw("gui.main-title"));
+        Inventory inv = Bukkit.createInventory(menu, SIZE, up(plugin.raw("gui.main-title")));
         menu.setInventory(inv);
         render(menu, p);
         p.openInventory(inv);
@@ -62,7 +62,7 @@ public final class MenuBuilder {
         if (c == null) return;
         ShopMenu menu = new ShopMenu(ShopMenu.Type.CATEGORY, c.id(), Math.max(0, page));
         Inventory inv = Bukkit.createInventory(menu, SIZE,
-                plugin.raw("gui.category-title", "category", shop().displayName(c)));
+                up(plugin.raw("gui.category-title", "category", shop().displayName(c))));
         menu.setInventory(inv);
         render(menu, p);
         p.openInventory(inv);
@@ -70,7 +70,7 @@ public final class MenuBuilder {
 
     public void openDeals(Player p) {
         ShopMenu menu = new ShopMenu(ShopMenu.Type.DEALS, null, 0);
-        Inventory inv = Bukkit.createInventory(menu, SIZE, plugin.raw("gui.deals-title"));
+        Inventory inv = Bukkit.createInventory(menu, SIZE, up(plugin.raw("gui.deals-title")));
         menu.setInventory(inv);
         render(menu, p);
         p.openInventory(inv);
@@ -177,15 +177,15 @@ public final class MenuBuilder {
     // ---------------------------------------------------------------- items
 
     private ItemStack categoryIcon(ShopCategory c) {
-        ItemStack stack = base(c.icon(), c.head());
+        ItemStack stack = base(c.icon(), categoryHead(c));
         ItemMeta meta = stack.getItemMeta();
         if (meta == null) return stack;
 
-        meta.setDisplayName(ChatColor.RESET + plugin.raw("gui.category-name", "name", shop().displayName(c)));
+        meta.setDisplayName(ChatColor.RESET + up(plugin.raw("gui.category-name", "name", shop().displayName(c))));
 
         List<String> lore = new ArrayList<>();
-        for (String l : c.lore()) lore.add(ChatColor.RESET + Text.color(l));
-        for (String l : plugin.rawList("gui.category-lore")) lore.add(ChatColor.RESET + l);
+        for (String l : c.lore()) lore.add(line(Text.color(l)));
+        for (String l : plugin.rawList("gui.category-lore")) lore.add(line(l));
         if (!lore.isEmpty()) meta.setLore(lore);
 
         meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
@@ -195,11 +195,14 @@ public final class MenuBuilder {
 
     /** The item as shown in a category: vanilla name + price lines + click hints. */
     private ItemStack display(ShopItem it, double discount) {
-        ItemStack stack = base(it.material(), it.head());
+        ItemStack stack = base(it.material(), itemHead(it));
         ItemMeta meta = stack.getItemMeta();
         if (meta == null) return stack;
 
-        if (it.name() != null) meta.setDisplayName(ChatColor.RESET + Text.color(it.name()));
+        String name = it.name() != null
+                ? Text.color(it.name())
+                : Text.color(plugin.getConfig().getString("gui.item-name-color", "&f")) + Text.pretty(it.material());
+        meta.setDisplayName(ChatColor.RESET + up(name));
 
         List<String> lore = new ArrayList<>();
         for (String l : it.lore()) lore.add(line(Text.color(l)));
@@ -242,7 +245,24 @@ public final class MenuBuilder {
     }
 
     private String line(String s) {
-        return ChatColor.RESET + s;
+        return ChatColor.RESET + up(s);
+    }
+
+    /** Own head of the category (price.yml) or the default nick from config (gui.category-head). */
+    private String categoryHead(ShopCategory c) {
+        if (c.head() != null && !c.head().isBlank()) return c.head();
+        return plugin.getConfig().getString("gui.category-head", "");
+    }
+
+    /** Own head of the item (price.yml) or the default nick from config (gui.item-head). */
+    private String itemHead(ShopItem it) {
+        if (it.head() != null && !it.head().isBlank()) return it.head();
+        return plugin.getConfig().getString("gui.item-head", "");
+    }
+
+    /** All menu texts in capital letters (gui.uppercase-names). */
+    private String up(String s) {
+        return plugin.getConfig().getBoolean("gui.uppercase-names", true) ? Text.upper(s) : s;
     }
 
     private ItemStack base(Material material, String head) {
@@ -254,10 +274,10 @@ public final class MenuBuilder {
         ItemStack stack = new ItemStack(material);
         ItemMeta meta = stack.getItemMeta();
         if (meta == null) return stack;
-        meta.setDisplayName(ChatColor.RESET + name);
+        meta.setDisplayName(ChatColor.RESET + up(name));
         if (lore != null && !lore.isEmpty()) {
             List<String> out = new ArrayList<>();
-            for (String l : lore) out.add(ChatColor.RESET + l);
+            for (String l : lore) out.add(line(l));
             meta.setLore(out);
         }
         meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);

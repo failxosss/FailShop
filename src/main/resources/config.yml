@@ -14,8 +14,15 @@ currency-symbol: "&6$"
 gui:
   # Background item of the menus
   filler: GRAY_STAINED_GLASS_PANE
-  # Category names are shown in CAPITAL LETTERS
+  # Every text in the menus (titles, item names, lore, buttons) is shown in CAPITAL LETTERS
   uppercase-names: true
+  # Player head (by nickname) shown instead of the block icon of the MAIN MENU categories.
+  # Set a different nick per category with "head: Nick" in price.yml. Empty = show the block icon.
+  category-head: "Notch"
+  # Same for the items INSIDE the categories (empty = real block icons). Per item: "head: Nick" in price.yml.
+  item-head: ""
+  # Color of the item names in the menus (items without their own name in price.yml)
+  item-name-color: "&f"
   # Extra button in the main menu that sells everything sellable in your inventory
   sell-all-button: false
 

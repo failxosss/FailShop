@@ -34,6 +34,22 @@ public final class Text {
         return out;
     }
 
+    /** Upper-cases the visible text but leaves color codes (&a, §a, §x§r§r§g§g§b§b) untouched. */
+    public static String upper(String s) {
+        if (s == null) return "";
+        StringBuilder sb = new StringBuilder(s.length());
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if ((c == '&' || c == '\u00a7') && i + 1 < s.length()) {
+                sb.append(c).append(s.charAt(i + 1));
+                i++;
+            } else {
+                sb.append(Character.toUpperCase(c));
+            }
+        }
+        return sb.toString();
+    }
+
     public static String pretty(Material m) {
         StringBuilder sb = new StringBuilder();
         for (String part : m.name().toLowerCase(Locale.ROOT).split("_")) {
