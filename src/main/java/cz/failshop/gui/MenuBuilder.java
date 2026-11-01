@@ -62,7 +62,7 @@ public final class MenuBuilder {
         if (c == null) return;
         ShopMenu menu = new ShopMenu(ShopMenu.Type.CATEGORY, c.id(), Math.max(0, page));
         Inventory inv = Bukkit.createInventory(menu, SIZE,
-                up(plugin.raw("gui.category-title", "category", shop().displayName(c))));
+                up(plugin.raw("gui.category-title", "category", coloredName(c))));
         menu.setInventory(inv);
         render(menu, p);
         p.openInventory(inv);
@@ -181,7 +181,7 @@ public final class MenuBuilder {
         ItemMeta meta = stack.getItemMeta();
         if (meta == null) return stack;
 
-        meta.setDisplayName(ChatColor.RESET + up(plugin.raw("gui.category-name", "name", shop().displayName(c))));
+        meta.setDisplayName(ChatColor.RESET + up(plugin.raw("gui.category-name", "name", coloredName(c))));
 
         List<String> lore = new ArrayList<>();
         for (String l : c.lore()) lore.add(line(Text.color(l)));
@@ -246,6 +246,13 @@ public final class MenuBuilder {
 
     private String line(String s) {
         return ChatColor.RESET + up(s);
+    }
+
+    /** Category name with its own color (price.yml "color") applied on top of the language file default. */
+    private String coloredName(ShopCategory c) {
+        String name = shop().displayName(c);
+        if (c.color() == null || c.color().isBlank()) return name;
+        return c.color() + "&l" + name;
     }
 
     /** Own head of the category (price.yml) or the default nick from config (gui.category-head). */

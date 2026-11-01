@@ -21,6 +21,7 @@
 #     name: {cs: "TEXT", en: "TEXT"}   # or a plain string
 #     icon: GRASS_BLOCK                # material of the category button
 #     head: "Nick"                     # player head (nick, texture URL, base64 or hash) as category icon (default: gui.category-head)
+#     color: "&a"                      # color of the category name / menu title (&-codes or &#RRGGBB)
 #     slot: 10                         # slot in the main menu (0-44), omit for automatic placement
 #     lore: ["&7Optional lines"]
 #
@@ -31,117 +32,330 @@
 categories:
   blocks:
     name: {cs: "STAVEBNINY", en: "BUILDING BLOCKS", sk: "STAVEBNINY", de: "BAUBLÖCKE", pl: "BLOKI BUDOWLANE", es: "BLOQUES DE CONSTRUCCIÓN", fr: "BLOCS DE CONSTRUCTION", ru: "СТРОЙМАТЕРИАЛЫ"}
+    color: "&a"
     icon: GRASS_BLOCK
     slot: 10
     items:
-      DIRT: {buy: 1.5, sell: 0.1}
-      COBBLESTONE: {buy: 2, sell: 0.2}
+      DIRT: {buy: 1.5, sell: 0.15}
+      COARSE_DIRT: {buy: 2, sell: 0.2}
+      ROOTED_DIRT: {buy: 2, sell: 0.2}
+      GRASS_BLOCK: {buy: 3, sell: 0.3}
+      PODZOL: {buy: 3, sell: 0.3}
       STONE: {buy: 3, sell: 0.3}
-      OAK_LOG: {buy: 4, sell: 0.5}
+      COBBLESTONE: {buy: 2, sell: 0.2}
+      MOSSY_COBBLESTONE: {buy: 3, sell: 0.3}
+      ANDESITE: {buy: 2.5, sell: 0.25}
+      DIORITE: {buy: 2.5, sell: 0.25}
+      GRANITE: {buy: 2.5, sell: 0.25}
+      DEEPSLATE: {buy: 3, sell: 0.3}
+      COBBLED_DEEPSLATE: {buy: 2.5, sell: 0.25}
+      TUFF: {buy: 2.5, sell: 0.25}
+      CALCITE: {buy: 3, sell: 0.3}
+      BLACKSTONE: {buy: 3, sell: 0.3}
+      BASALT: {buy: 3, sell: 0.3}
+      SMOOTH_BASALT: {buy: 3, sell: 0.3}
       SAND: {buy: 3, sell: 0.3}
+      RED_SAND: {buy: 3, sell: 0.3}
+      GRAVEL: {buy: 2, sell: 0.2}
+      CLAY: {buy: 4, sell: 0.4}
+      SANDSTONE: {buy: 4, sell: 0.4}
+      RED_SANDSTONE: {buy: 4, sell: 0.4}
+      TERRACOTTA: {buy: 5, sell: 0.5}
+      SNOW_BLOCK: {buy: 3, sell: 0.3}
+      BLUE_ICE: {buy: 20, sell: 2}
+      OAK_PLANKS: {buy: 3, sell: 0.3}
+      SPRUCE_PLANKS: {buy: 3, sell: 0.3}
+      BIRCH_PLANKS: {buy: 3, sell: 0.3}
+      JUNGLE_PLANKS: {buy: 3, sell: 0.3}
+      ACACIA_PLANKS: {buy: 3, sell: 0.3}
+      DARK_OAK_PLANKS: {buy: 3, sell: 0.3}
+      MANGROVE_PLANKS: {buy: 3, sell: 0.3}
+      CHERRY_PLANKS: {buy: 3, sell: 0.3}
+      BAMBOO_PLANKS: {buy: 3, sell: 0.3}
+      CRIMSON_PLANKS: {buy: 3, sell: 0.3}
+      WARPED_PLANKS: {buy: 3, sell: 0.3}
+      OAK_LOG: {buy: 4, sell: 0.4}
+      SPRUCE_LOG: {buy: 4, sell: 0.4}
+      BIRCH_LOG: {buy: 4, sell: 0.4}
+      JUNGLE_LOG: {buy: 4, sell: 0.4}
+      ACACIA_LOG: {buy: 4, sell: 0.4}
+      DARK_OAK_LOG: {buy: 4, sell: 0.4}
+      MANGROVE_LOG: {buy: 4, sell: 0.4}
+      CHERRY_LOG: {buy: 4, sell: 0.4}
+      BAMBOO_BLOCK: {buy: 4, sell: 0.4}
+      CRIMSON_STEM: {buy: 4, sell: 0.4}
+      WARPED_STEM: {buy: 4, sell: 0.4}
+      WHITE_CONCRETE: {buy: 6, sell: 0.6}
+      ORANGE_CONCRETE: {buy: 6, sell: 0.6}
+      MAGENTA_CONCRETE: {buy: 6, sell: 0.6}
+      LIGHT_BLUE_CONCRETE: {buy: 6, sell: 0.6}
+      YELLOW_CONCRETE: {buy: 6, sell: 0.6}
+      LIME_CONCRETE: {buy: 6, sell: 0.6}
+      PINK_CONCRETE: {buy: 6, sell: 0.6}
+      GRAY_CONCRETE: {buy: 6, sell: 0.6}
+      LIGHT_GRAY_CONCRETE: {buy: 6, sell: 0.6}
+      CYAN_CONCRETE: {buy: 6, sell: 0.6}
+      PURPLE_CONCRETE: {buy: 6, sell: 0.6}
+      BLUE_CONCRETE: {buy: 6, sell: 0.6}
+      BROWN_CONCRETE: {buy: 6, sell: 0.6}
+      GREEN_CONCRETE: {buy: 6, sell: 0.6}
+      RED_CONCRETE: {buy: 6, sell: 0.6}
+      BLACK_CONCRETE: {buy: 6, sell: 0.6}
       GLASS: {buy: 4, sell: 0.4}
       BRICKS: {buy: 6, sell: 0.6}
       STONE_BRICKS: {buy: 4, sell: 0.4}
-  ores:
-    name: {cs: "RUDY", en: "ORES", sk: "RUDY", de: "ERZE", pl: "RUDY", es: "MINERALES", fr: "MINERAIS", ru: "РУДЫ"}
-    icon: DEEPSLATE_DIAMOND_ORE
-    slot: 11
-    items:
-      COAL: {buy: 4, sell: 0.5}
-      COPPER_INGOT: {buy: 5, sell: 0.6}
-      IRON_INGOT: {buy: 10, sell: 1.5}
-      GOLD_INGOT: {buy: 25, sell: 3}
-      LAPIS_LAZULI: {buy: 6, sell: 0.8}
+      NETHER_BRICKS: {buy: 5, sell: 0.5}
+      RED_NETHER_BRICKS: {buy: 6, sell: 0.6}
+      NETHERRACK: {buy: 1, sell: 0.1}
+      SOUL_SAND: {buy: 5, sell: 0.5}
+      OBSIDIAN: {buy: 25, sell: 2.5}
+      CRYING_OBSIDIAN: {buy: 60, sell: 6}
+      MAGMA_BLOCK: {buy: 10, sell: 1}
+      AMETHYST_BLOCK: {buy: 30, sell: 3}
+      QUARTZ_BLOCK: {buy: 12, sell: 1.2}
+      PRISMARINE: {buy: 8, sell: 0.8}
+      COBWEB: {buy: 15, sell: 1.5}
+      NETHER_WART_BLOCK: {buy: 6, sell: 0.6}
+      WARPED_WART_BLOCK: {buy: 6, sell: 0.6}
   decor:
     name: {cs: "DEKORACE", en: "DECORATION", sk: "DEKORÁCIE", de: "DEKORATION", pl: "DEKORACJE", es: "DECORACIÓN", fr: "DÉCORATION", ru: "ДЕКОР"}
+    color: "&#1B8FC8"
     icon: LANTERN
+    slot: 11
+    items:
+      CHAIN: {buy: 8, sell: 0.8}
+      FLOWER_POT: {buy: 4, sell: 0.4}
+      HONEYCOMB_BLOCK: {buy: 12, sell: 1.2}
+      JACK_O_LANTERN: {buy: 8, sell: 0.8}
+      POINTED_DRIPSTONE: {buy: 4, sell: 0.4}
+      PINK_PETALS: {buy: 5, sell: 0.5}
+      BLACK_CANDLE: {buy: 6, sell: 0.6}
+      BLUE_CANDLE: {buy: 6, sell: 0.6}
+      BROWN_CANDLE: {buy: 6, sell: 0.6}
+      CANDLE: {buy: 6, sell: 0.6}
+      CYAN_CANDLE: {buy: 6, sell: 0.6}
+      GRAY_CANDLE: {buy: 6, sell: 0.6}
+      GREEN_CANDLE: {buy: 6, sell: 0.6}
+      LIGHT_BLUE_CANDLE: {buy: 6, sell: 0.6}
+      LIGHT_GRAY_CANDLE: {buy: 6, sell: 0.6}
+      LIME_CANDLE: {buy: 6, sell: 0.6}
+      MAGENTA_CANDLE: {buy: 6, sell: 0.6}
+      ORANGE_CANDLE: {buy: 6, sell: 0.6}
+      PINK_CANDLE: {buy: 6, sell: 0.6}
+      PURPLE_CANDLE: {buy: 6, sell: 0.6}
+      RED_CANDLE: {buy: 6, sell: 0.6}
+      WHITE_CANDLE: {buy: 6, sell: 0.6}
+      YELLOW_CANDLE: {buy: 6, sell: 0.6}
+      OCHRE_FROGLIGHT: {buy: 40, sell: 4}
+      PEARLESCENT_FROGLIGHT: {buy: 40, sell: 4}
+      VERDANT_FROGLIGHT: {buy: 40, sell: 4}
+      MOSS_BLOCK: {buy: 5, sell: 0.5}
+      TWISTING_VINES: {buy: 4, sell: 0.4}
+      VINE: {buy: 3, sell: 0.3}
+      WEEPING_VINES: {buy: 4, sell: 0.4}
+      SEA_LANTERN: {buy: 15, sell: 1.5}
+      GLOWSTONE: {buy: 12, sell: 1.2}
+      SHROOMLIGHT: {buy: 12, sell: 1.2}
+      LANTERN: {buy: 12, sell: 1.2}
+      SOUL_LANTERN: {buy: 12, sell: 1.2}
+  wool:
+    name: {cs: "VLNA", en: "WOOL", sk: "VLNA", de: "WOLLE", pl: "WEŁNA", es: "LANA", fr: "LAINE", ru: "ШЕРСТЬ"}
+    color: "&f"
+    icon: WHITE_WOOL
     slot: 12
     items:
-      GLASS_PANE: {buy: 1.5, sell: 0.15}
       WHITE_WOOL: {buy: 5, sell: 0.5}
-      FLOWER_POT: {buy: 4, sell: 0.4}
-      PAINTING: {buy: 10, sell: 1}
-      ITEM_FRAME: {buy: 8, sell: 0.8}
-      LANTERN: {buy: 12, sell: 1.2}
-  gems:
-    name: {cs: "DRAHOKAMY", en: "GEMS", sk: "DRAHOKAMY", de: "EDELSTEINE", pl: "KLEJNOTY", es: "GEMAS", fr: "GEMMES", ru: "САМОЦВЕТЫ"}
+      LIGHT_GRAY_WOOL: {buy: 5, sell: 0.5}
+      GRAY_WOOL: {buy: 5, sell: 0.5}
+      BLACK_WOOL: {buy: 5, sell: 0.5}
+      BROWN_WOOL: {buy: 5, sell: 0.5}
+      RED_WOOL: {buy: 5, sell: 0.5}
+      ORANGE_WOOL: {buy: 5, sell: 0.5}
+      YELLOW_WOOL: {buy: 5, sell: 0.5}
+      LIME_WOOL: {buy: 5, sell: 0.5}
+      GREEN_WOOL: {buy: 5, sell: 0.5}
+      CYAN_WOOL: {buy: 5, sell: 0.5}
+      LIGHT_BLUE_WOOL: {buy: 5, sell: 0.5}
+      BLUE_WOOL: {buy: 5, sell: 0.5}
+      PURPLE_WOOL: {buy: 5, sell: 0.5}
+      MAGENTA_WOOL: {buy: 5, sell: 0.5}
+      PINK_WOOL: {buy: 5, sell: 0.5}
+  ores:
+    name: {cs: "OREČKA", en: "ORES", sk: "RUDY", de: "ERZE", pl: "RUDY", es: "MINERALES", fr: "MINERAIS", ru: "РУДЫ"}
+    color: "&b"
     icon: DIAMOND_BLOCK
     slot: 14
     items:
-      DIAMOND: {buy: 100, sell: 12}
-      EMERALD: {buy: 80, sell: 10}
-      AMETHYST_SHARD: {buy: 15, sell: 2}
-      QUARTZ: {buy: 12, sell: 1.5}
-  nether:
-    name: {cs: "NETHER", en: "NETHER", sk: "NETHER", de: "NETHER", pl: "NETHER", es: "NETHER", fr: "NETHER", ru: "НЕЗЕР"}
-    icon: OBSIDIAN
+      NETHERITE_INGOT: {buy: 500, sell: 50}
+      COAL: {buy: 4, sell: 0.4}
+      IRON_INGOT: {buy: 10, sell: 1}
+      GOLD_INGOT: {buy: 25, sell: 2.5}
+      DIAMOND: {buy: 100, sell: 10}
+      EMERALD: {buy: 80, sell: 8}
+      QUARTZ: {buy: 12, sell: 1.2}
+      LAPIS_LAZULI: {buy: 6, sell: 0.6}
+      REDSTONE: {buy: 5, sell: 0.5}
+      COPPER_INGOT: {buy: 5, sell: 0.5}
+      NETHERITE_SCRAP: {buy: 120, sell: 12}
+  drops:
+    name: {cs: "DROPY Z MOBŮ", en: "MOB DROPS", sk: "DROPY Z MOBOV", de: "MOB-DROPS", pl: "ŁUPY Z MOBÓW", es: "BOTÍN DE MOBS", fr: "BUTIN DES MOBS", ru: "ДРОП С МОБОВ"}
+    color: "&5"
+    icon: BONE_BLOCK
     slot: 15
     items:
-      NETHERRACK: {buy: 1, sell: 0.1}
-      NETHER_BRICKS: {buy: 4, sell: 0.4}
-      SOUL_SAND: {buy: 5, sell: 0.5}
-      GLOWSTONE_DUST: {buy: 8, sell: 1}
-      NETHER_WART: {buy: 6, sell: 0.7}
-      BLAZE_ROD: {buy: 30, sell: 4}
+      ROTTEN_FLESH: {buy: 2, sell: 0.2}
+      BONE: {buy: 4, sell: 0.4}
+      STRING: {buy: 4, sell: 0.4}
+      SPIDER_EYE: {buy: 5, sell: 0.5}
+      ENDER_PEARL: {buy: 50, sell: 5}
+      GOLD_NUGGET: {buy: 3, sell: 0.3}
+      BLAZE_ROD: {buy: 30, sell: 3}
+      LEATHER: {buy: 8, sell: 0.8}
+      RABBIT_HIDE: {buy: 5, sell: 0.5}
+      RABBIT_FOOT: {buy: 30, sell: 3}
+      SHULKER_SHELL: {buy: 150, sell: 15}
+      INK_SAC: {buy: 4, sell: 0.4}
+      PRISMARINE_CRYSTALS: {buy: 10, sell: 1}
+      GUNPOWDER: {buy: 8, sell: 0.8}
+      NAUTILUS_SHELL: {buy: 40, sell: 4}
+      TURTLE_SCUTE: {buy: 25, sell: 2.5}
+      TURTLE_EGG: {buy: 40, sell: 4}
+      TOTEM_OF_UNDYING: {buy: 500, sell: 50}
+      ARMADILLO_SCUTE: {buy: 25, sell: 2.5}
+      EGG: {buy: 2, sell: 0.2}
+      FEATHER: {buy: 3, sell: 0.3}
+      SLIME_BALL: {buy: 10, sell: 1}
+      CHORUS_FRUIT: {buy: 8, sell: 0.8}
+      PRISMARINE_SHARD: {buy: 6, sell: 0.6}
+      MAGMA_CREAM: {buy: 15, sell: 1.5}
+      WITHER_SKELETON_SKULL: {buy: 400, sell: 40}
+      NETHER_STAR: {buy: 1000, sell: 100}
+      SUGAR: {buy: 3, sell: 0.3}
+      GLASS_BOTTLE: {buy: 3, sell: 0.3}
+      BLAZE_POWDER: {buy: 15, sell: 1.5}
+      ARROW: {buy: 3, sell: 0.3}
+      PHANTOM_MEMBRANE: {buy: 20, sell: 2}
   redstone:
     name: {cs: "REDSTONE", en: "REDSTONE", sk: "REDSTONE", de: "REDSTONE", pl: "REDSTONE", es: "REDSTONE", fr: "REDSTONE", ru: "РЕДСТОУН"}
+    color: "&#E60000"
     icon: REDSTONE_BLOCK
     slot: 16
     items:
-      REDSTONE: {buy: 5, sell: 0.6}
+      CAULDRON: {buy: 15, sell: 1.5}
+      DAYLIGHT_DETECTOR: {buy: 30, sell: 3}
+      DISPENSER: {buy: 25, sell: 2.5}
+      DROPPER: {buy: 20, sell: 2}
+      HOPPER: {buy: 40, sell: 4}
+      IRON_TRAPDOOR: {buy: 25, sell: 2.5}
+      JUKEBOX: {buy: 60, sell: 6}
+      LEVER: {buy: 3, sell: 0.3}
+      REDSTONE_TORCH: {buy: 6, sell: 0.6}
+      NOTE_BLOCK: {buy: 15, sell: 1.5}
+      OBSERVER: {buy: 25, sell: 2.5}
+      REDSTONE_LAMP: {buy: 25, sell: 2.5}
+      TARGET: {buy: 20, sell: 2}
+      TRIPWIRE_HOOK: {buy: 8, sell: 0.8}
       REPEATER: {buy: 12, sell: 1.2}
       COMPARATOR: {buy: 20, sell: 2}
       PISTON: {buy: 25, sell: 2.5}
-      OBSERVER: {buy: 25, sell: 2.5}
-      HOPPER: {buy: 40, sell: 4}
+      STICKY_PISTON: {buy: 40, sell: 4}
+      SCULK_SENSOR: {buy: 60, sell: 6}
+      REDSTONE: {buy: 5, sell: 0.5}
+      REDSTONE_BLOCK: {buy: 45, sell: 4.5}
+      SLIME_BLOCK: {buy: 50, sell: 5}
   farming:
-    name: {cs: "FARMÁŘ", en: "FARMING", sk: "FARMÁRČENIE", de: "LANDWIRTSCHAFT", pl: "FARMING", es: "AGRICULTURA", fr: "AGRICULTURE", ru: "ФЕРМА"}
+    name: {cs: "FARMAŘENÍ", en: "FARMING", sk: "FARMÁRČENIE", de: "LANDWIRTSCHAFT", pl: "FARMING", es: "AGRICULTURA", fr: "AGRICULTURE", ru: "ФЕРМА"}
+    color: "&e"
     icon: HAY_BLOCK
     slot: 28
     items:
-      WHEAT: {buy: 3, sell: 0.4}
-      WHEAT_SEEDS: {buy: 1, sell: 0.1}
-      CARROT: {buy: 3, sell: 0.4}
-      POTATO: {buy: 3, sell: 0.4}
-      SUGAR_CANE: {buy: 3, sell: 0.3}
-      PUMPKIN: {buy: 6, sell: 0.8}
+      WHEAT: {buy: 3, sell: 0.3}
+      POTATO: {buy: 3, sell: 0.3}
+      CARROT: {buy: 3, sell: 0.3}
+      BEETROOT: {buy: 3, sell: 0.3}
+      MYCELIUM: {buy: 10, sell: 1}
+      PUMPKIN: {buy: 6, sell: 0.6}
       MELON_SLICE: {buy: 2, sell: 0.2}
-      BONE_MEAL: {buy: 4, sell: 0.5}
+      MELON_SEEDS: {buy: 2, sell: 0.2}
+      PUMPKIN_SEEDS: {buy: 2, sell: 0.2}
+      CHORUS_FLOWER: {buy: 25, sell: 2.5}
+      SWEET_BERRIES: {buy: 3, sell: 0.3}
+      SEA_PICKLE: {buy: 4, sell: 0.4}
+      BAMBOO: {buy: 2, sell: 0.2}
+      SUGAR_CANE: {buy: 3, sell: 0.3}
+      OAK_SAPLING: {buy: 3, sell: 0.3}
+      SPRUCE_SAPLING: {buy: 3, sell: 0.3}
+      BIRCH_SAPLING: {buy: 3, sell: 0.3}
+      JUNGLE_SAPLING: {buy: 3, sell: 0.3}
+      ACACIA_SAPLING: {buy: 3, sell: 0.3}
+      DARK_OAK_SAPLING: {buy: 3, sell: 0.3}
+      CHERRY_SAPLING: {buy: 3, sell: 0.3}
+      MANGROVE_PROPAGULE: {buy: 3, sell: 0.3}
+      WARPED_FUNGUS: {buy: 5, sell: 0.5}
+      CRIMSON_FUNGUS: {buy: 5, sell: 0.5}
+      AZALEA: {buy: 8, sell: 0.8}
+      FLOWERING_AZALEA: {buy: 10, sell: 1}
+      BROWN_MUSHROOM: {buy: 3, sell: 0.3}
+      RED_MUSHROOM: {buy: 3, sell: 0.3}
+      HONEYCOMB: {buy: 8, sell: 0.8}
+      WHEAT_SEEDS: {buy: 1, sell: 0.1}
+      BONE_MEAL: {buy: 4, sell: 0.4}
   food:
     name: {cs: "JÍDLO", en: "FOOD", sk: "JEDLO", de: "ESSEN", pl: "JEDZENIE", es: "COMIDA", fr: "NOURRITURE", ru: "ЕДА"}
+    color: "&6"
     icon: CAKE
     slot: 29
     items:
-      BREAD: {buy: 6, sell: 0.8}
-      COOKED_BEEF: {buy: 10, sell: 1.2}
-      COOKED_PORKCHOP: {buy: 10, sell: 1.2}
-      COOKED_CHICKEN: {buy: 8, sell: 1}
+      BREAD: {buy: 6, sell: 0.6}
+      COOKED_BEEF: {buy: 10, sell: 1}
+      COOKED_PORKCHOP: {buy: 10, sell: 1}
+      COOKED_CHICKEN: {buy: 8, sell: 0.8}
+      COOKED_SALMON: {buy: 10, sell: 1}
+      COOKED_COD: {buy: 8, sell: 0.8}
       APPLE: {buy: 5, sell: 0.5}
-      BAKED_POTATO: {buy: 5, sell: 0.6}
-      GOLDEN_CARROT: {buy: 15, sell: 2}
-  drops:
-    name: {cs: "DROPY Z MOBŮ", en: "MOB DROPS", sk: "DROPY Z MOBOV", de: "MOB-DROPS", pl: "ŁUPY Z MOBÓW", es: "BOTÍN DE MOBS", fr: "BUTIN DES MOBS", ru: "ДРОП С МОБОВ"}
-    icon: BONE_BLOCK
+      BAKED_POTATO: {buy: 5, sell: 0.5}
+      GOLDEN_CARROT: {buy: 15, sell: 1.5}
+      GOLDEN_APPLE: {buy: 100, sell: 10}
+      COOKIE: {buy: 3, sell: 0.3}
+      PUMPKIN_PIE: {buy: 8, sell: 0.8}
+      MUSHROOM_STEW: {buy: 10, sell: 1}
+      CAKE: {buy: 40, sell: 4}
+  eggs:
+    name: {cs: "VAJÍČKA", en: "SPAWN EGGS", sk: "VAJÍČKA", de: "SPAWN-EIER", pl: "JAJKA", es: "HUEVOS", fr: "ŒUFS", ru: "ЯЙЦА"}
+    color: "&f"
+    icon: TURTLE_EGG
     slot: 30
     items:
-      BONE: {buy: 4, sell: 0.5}
-      STRING: {buy: 4, sell: 0.5}
-      GUNPOWDER: {buy: 8, sell: 1}
-      SPIDER_EYE: {buy: 5, sell: 0.6}
-      ROTTEN_FLESH: {buy: 2, sell: 0.2}
-      ENDER_PEARL: {buy: 50, sell: 6}
-      SLIME_BALL: {buy: 10, sell: 1.2}
-  fuel:
-    name: {cs: "PALIVO", en: "FUEL", sk: "PALIVO", de: "BRENNSTOFF", pl: "PALIWO", es: "COMBUSTIBLE", fr: "COMBUSTIBLE", ru: "ТОПЛИВО"}
-    icon: COAL_BLOCK
+      ZOMBIE_SPAWN_EGG: {buy: 150}
+      SKELETON_SPAWN_EGG: {buy: 150}
+      CREEPER_SPAWN_EGG: {buy: 150}
+      SPIDER_SPAWN_EGG: {buy: 150}
+      ENDERMAN_SPAWN_EGG: {buy: 150}
+      SLIME_SPAWN_EGG: {buy: 150}
+      COW_SPAWN_EGG: {buy: 150}
+      PIG_SPAWN_EGG: {buy: 150}
+      SHEEP_SPAWN_EGG: {buy: 150}
+      CHICKEN_SPAWN_EGG: {buy: 150}
+      HORSE_SPAWN_EGG: {buy: 150}
+      WOLF_SPAWN_EGG: {buy: 150}
+      CAT_SPAWN_EGG: {buy: 150}
+      BEE_SPAWN_EGG: {buy: 150}
+      VILLAGER_SPAWN_EGG: {buy: 150}
+  heads:
+    name: {cs: "HLAVY", en: "HEADS", sk: "HLAVY", de: "KÖPFE", pl: "GŁOWY", es: "CABEZAS", fr: "TÊTES", ru: "ГОЛОВЫ"}
+    color: "&d"
+    icon: PLAYER_HEAD
     slot: 32
     items:
-      COAL: {buy: 4, sell: 0.5}
-      CHARCOAL: {buy: 3, sell: 0.4}
-      COAL_BLOCK: {buy: 36, sell: 4.5}
-      LAVA_BUCKET: {buy: 40, sell: 5}
-  misc:
-    name: {cs: "RŮZNÉ", en: "MISC", sk: "RÔZNE", de: "VERSCHIEDENES", pl: "RÓŻNE", es: "VARIOS", fr: "DIVERS", ru: "РАЗНОЕ"}
+      ZOMBIE_HEAD: {buy: 150}
+      SKELETON_SKULL: {buy: 150}
+      CREEPER_HEAD: {buy: 200}
+      PIGLIN_HEAD: {buy: 200}
+      DRAGON_HEAD: {buy: 500}
+      PLAYER_HEAD: {buy: 100}
+  other:
+    name: {cs: "OSTATNÍ", en: "OTHER", sk: "OSTATNÉ", de: "SONSTIGES", pl: "POZOSTAŁE", es: "OTROS", fr: "AUTRES", ru: "ПРОЧЕЕ"}
+    color: "&#FF6A00"
     icon: BARREL
     slot: 33
     items:
@@ -151,4 +365,7 @@ categories:
       FURNACE: {buy: 8, sell: 0.8}
       ANVIL: {buy: 60, sell: 6}
       NAME_TAG: {buy: 40, sell: 4}
+      CHARCOAL: {buy: 3, sell: 0.3}
+      COAL_BLOCK: {buy: 36, sell: 3.6}
+      LAVA_BUCKET: {buy: 40, sell: 4}
       xp-100: {material: EXPERIENCE_BOTTLE, buy: 50, name: {cs: "&a100 bodů zkušeností", en: "&a100 experience points", sk: "&a100 skúseností", de: "&a100 Erfahrungspunkte", pl: "&a100 punktów doświadczenia", es: "&a100 puntos de experiencia", fr: "&a100 points d'expérience", ru: "&a100 очков опыта"}, commands: ["xp add {player} 100 points"]}

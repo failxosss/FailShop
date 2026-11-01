@@ -32,6 +32,7 @@ git tag v1.0.0 && git push origin v1.0.0
 - `config.yml` -> `language: en`, `cs`, `sk`, `de`, `pl`, `es`, `fr` or `ru` (files in `plugins/FailShop/lang/`, add your own `xx.yml`)
 - `price.yml` -> categories and prices, one line per block: `DIAMOND: {buy: 100, sell: 12}` (the old `shops.yml` is copied automatically)
 - Main menu categories are shown as player heads: `gui.category-head: "Nick"` in `config.yml` (default for all), `head: Nick` on a category in `price.yml` (per category). Items inside categories can use heads too (`gui.item-head` / `head:`), empty by default
+- Each category has its own color: `color: "&a"` (or `&#RRGGBB`) in `price.yml`, used for the category name and menu title
 - All GUI texts are in CAPITAL LETTERS by default, switch with `gui.text-style: uppercase | small-caps (ᴛɪᴍᴛᴏ) | normal`
 - `/shopadmin reload` applies changes
 

@@ -113,7 +113,7 @@ public final class ShopManager {
             }
         }
         categories.put(cid, new ShopCategory(cid, name, icon, head, c.getInt("slot", -1),
-                plugin.lang().pickList(c, "lore"), list));
+                plugin.lang().pickList(c, "lore"), list, c.getString("color", "")));
     }
 
     private void loadData() {
