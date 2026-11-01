@@ -3,7 +3,8 @@
 # =========================================
 
 # Language of all texts. Uses the file lang/<code>.yml
-# Bundled: en (English), cs (Čeština). You can add your own lang/xx.yml.
+# Bundled: en (English), cs (Čeština), sk (Slovenčina), de (Deutsch), pl (Polski),
+#          es (Español), fr (Français), ru (Русский). You can add your own lang/xx.yml.
 # After changing it use /shopadmin reload
 language: en
 
@@ -14,8 +15,9 @@ currency-symbol: "&6$"
 gui:
   # Background item of the menus
   filler: GRAY_STAINED_GLASS_PANE
-  # Every text in the menus (titles, item names, lore, buttons) is shown in CAPITAL LETTERS
-  uppercase-names: true
+  # Style of every text in the menus (titles, item names, lore, buttons):
+  #   uppercase = TAKHLE, small-caps = ᴛᴀᴋʜʟᴇ (accents are removed), normal = unchanged
+  text-style: uppercase
   # Player head (by nickname) shown instead of the block icon of the MAIN MENU categories.
   # Set a different nick per category with "head: Nick" in price.yml. Empty = show the block icon.
   category-head: "Notch"

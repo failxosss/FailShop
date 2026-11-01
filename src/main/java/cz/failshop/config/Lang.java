@@ -20,6 +20,9 @@ import java.util.Locale;
  */
 public final class Lang {
 
+    /** Language files shipped inside the jar (copied to plugins/FailShop/lang/). */
+    public static final String[] BUNDLED = {"en", "cs", "sk", "de", "pl", "es", "fr", "ru"};
+
     private final FailShop plugin;
     private YamlConfiguration lang = new YamlConfiguration();
     private YamlConfiguration fallback = new YamlConfiguration();
@@ -34,7 +37,7 @@ public final class Lang {
     }
 
     public void load() {
-        for (String bundled : new String[]{"en", "cs"}) {
+        for (String bundled : BUNDLED) {
             File f = new File(plugin.getDataFolder(), "lang/" + bundled + ".yml");
             if (!f.exists()) plugin.saveResource("lang/" + bundled + ".yml", false);
         }

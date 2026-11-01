@@ -260,9 +260,9 @@ public final class MenuBuilder {
         return plugin.getConfig().getString("gui.item-head", "");
     }
 
-    /** All menu texts in capital letters (gui.uppercase-names). */
+    /** Applies the text style of gui.text-style (capital letters by default) to a menu text. */
     private String up(String s) {
-        return plugin.getConfig().getBoolean("gui.uppercase-names", true) ? Text.upper(s) : s;
+        return Text.style(s, plugin.getConfig().getString("gui.text-style", "uppercase"));
     }
 
     private ItemStack base(Material material, String head) {

@@ -239,9 +239,8 @@ public final class ShopManager {
         saveData();
     }
 
-    /** Capitalizes category names when gui.uppercase-names is on. */
+    /** Category name as written in price.yml (the menu applies gui.text-style to it). */
     public String displayName(ShopCategory c) {
-        String n = c.name();
-        return plugin.getConfig().getBoolean("gui.uppercase-names", true) ? n.toUpperCase(Locale.ROOT) : n;
+        return c.name();
     }
 }

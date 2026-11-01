@@ -26,11 +26,11 @@
 #
 # Click behaviour: left = buy 1, shift+left = buy a stack,
 # right = sell 1, shift+right = sell all of that item.
-# All GUI texts are shown in CAPITAL LETTERS (gui.uppercase-names in config.yml).
+# All GUI texts are shown in capital letters (gui.text-style in config.yml).
 
 categories:
   blocks:
-    name: {cs: "STAVEBNINY", en: "BUILDING BLOCKS"}
+    name: {cs: "STAVEBNINY", en: "BUILDING BLOCKS", sk: "STAVEBNINY", de: "BAUBLÖCKE", pl: "BLOKI BUDOWLANE", es: "BLOQUES DE CONSTRUCCIÓN", fr: "BLOCS DE CONSTRUCTION", ru: "СТРОЙМАТЕРИАЛЫ"}
     icon: GRASS_BLOCK
     slot: 10
     items:
@@ -43,7 +43,7 @@ categories:
       BRICKS: {buy: 6, sell: 0.6}
       STONE_BRICKS: {buy: 4, sell: 0.4}
   ores:
-    name: {cs: "RUDY", en: "ORES"}
+    name: {cs: "RUDY", en: "ORES", sk: "RUDY", de: "ERZE", pl: "RUDY", es: "MINERALES", fr: "MINERAIS", ru: "РУДЫ"}
     icon: DEEPSLATE_DIAMOND_ORE
     slot: 11
     items:
@@ -53,7 +53,7 @@ categories:
       GOLD_INGOT: {buy: 25, sell: 3}
       LAPIS_LAZULI: {buy: 6, sell: 0.8}
   decor:
-    name: {cs: "DEKORACE", en: "DECORATION"}
+    name: {cs: "DEKORACE", en: "DECORATION", sk: "DEKORÁCIE", de: "DEKORATION", pl: "DEKORACJE", es: "DECORACIÓN", fr: "DÉCORATION", ru: "ДЕКОР"}
     icon: LANTERN
     slot: 12
     items:
@@ -64,7 +64,7 @@ categories:
       ITEM_FRAME: {buy: 8, sell: 0.8}
       LANTERN: {buy: 12, sell: 1.2}
   gems:
-    name: {cs: "DRAHOKAMY", en: "GEMS"}
+    name: {cs: "DRAHOKAMY", en: "GEMS", sk: "DRAHOKAMY", de: "EDELSTEINE", pl: "KLEJNOTY", es: "GEMAS", fr: "GEMMES", ru: "САМОЦВЕТЫ"}
     icon: DIAMOND_BLOCK
     slot: 14
     items:
@@ -73,7 +73,7 @@ categories:
       AMETHYST_SHARD: {buy: 15, sell: 2}
       QUARTZ: {buy: 12, sell: 1.5}
   nether:
-    name: {cs: "NETHER", en: "NETHER"}
+    name: {cs: "NETHER", en: "NETHER", sk: "NETHER", de: "NETHER", pl: "NETHER", es: "NETHER", fr: "NETHER", ru: "НЕЗЕР"}
     icon: OBSIDIAN
     slot: 15
     items:
@@ -84,7 +84,7 @@ categories:
       NETHER_WART: {buy: 6, sell: 0.7}
       BLAZE_ROD: {buy: 30, sell: 4}
   redstone:
-    name: {cs: "REDSTONE", en: "REDSTONE"}
+    name: {cs: "REDSTONE", en: "REDSTONE", sk: "REDSTONE", de: "REDSTONE", pl: "REDSTONE", es: "REDSTONE", fr: "REDSTONE", ru: "РЕДСТОУН"}
     icon: REDSTONE_BLOCK
     slot: 16
     items:
@@ -95,7 +95,7 @@ categories:
       OBSERVER: {buy: 25, sell: 2.5}
       HOPPER: {buy: 40, sell: 4}
   farming:
-    name: {cs: "FARMÁŘ", en: "FARMING"}
+    name: {cs: "FARMÁŘ", en: "FARMING", sk: "FARMÁRČENIE", de: "LANDWIRTSCHAFT", pl: "FARMING", es: "AGRICULTURA", fr: "AGRICULTURE", ru: "ФЕРМА"}
     icon: HAY_BLOCK
     slot: 28
     items:
@@ -108,7 +108,7 @@ categories:
       MELON_SLICE: {buy: 2, sell: 0.2}
       BONE_MEAL: {buy: 4, sell: 0.5}
   food:
-    name: {cs: "JÍDLO", en: "FOOD"}
+    name: {cs: "JÍDLO", en: "FOOD", sk: "JEDLO", de: "ESSEN", pl: "JEDZENIE", es: "COMIDA", fr: "NOURRITURE", ru: "ЕДА"}
     icon: CAKE
     slot: 29
     items:
@@ -120,7 +120,7 @@ categories:
       BAKED_POTATO: {buy: 5, sell: 0.6}
       GOLDEN_CARROT: {buy: 15, sell: 2}
   drops:
-    name: {cs: "DROPY Z MOBŮ", en: "MOB DROPS"}
+    name: {cs: "DROPY Z MOBŮ", en: "MOB DROPS", sk: "DROPY Z MOBOV", de: "MOB-DROPS", pl: "ŁUPY Z MOBÓW", es: "BOTÍN DE MOBS", fr: "BUTIN DES MOBS", ru: "ДРОП С МОБОВ"}
     icon: BONE_BLOCK
     slot: 30
     items:
@@ -132,7 +132,7 @@ categories:
       ENDER_PEARL: {buy: 50, sell: 6}
       SLIME_BALL: {buy: 10, sell: 1.2}
   fuel:
-    name: {cs: "PALIVO", en: "FUEL"}
+    name: {cs: "PALIVO", en: "FUEL", sk: "PALIVO", de: "BRENNSTOFF", pl: "PALIWO", es: "COMBUSTIBLE", fr: "COMBUSTIBLE", ru: "ТОПЛИВО"}
     icon: COAL_BLOCK
     slot: 32
     items:
@@ -141,7 +141,7 @@ categories:
       COAL_BLOCK: {buy: 36, sell: 4.5}
       LAVA_BUCKET: {buy: 40, sell: 5}
   misc:
-    name: {cs: "RŮZNÉ", en: "MISC"}
+    name: {cs: "RŮZNÉ", en: "MISC", sk: "RÔZNE", de: "VERSCHIEDENES", pl: "RÓŻNE", es: "VARIOS", fr: "DIVERS", ru: "РАЗНОЕ"}
     icon: BARREL
     slot: 33
     items:
@@ -151,4 +151,4 @@ categories:
       FURNACE: {buy: 8, sell: 0.8}
       ANVIL: {buy: 60, sell: 6}
       NAME_TAG: {buy: 40, sell: 4}
-      xp-100: {material: EXPERIENCE_BOTTLE, buy: 50, name: {cs: "&a100 bodů zkušeností", en: "&a100 experience points"}, commands: ["xp add {player} 100 points"]}
+      xp-100: {material: EXPERIENCE_BOTTLE, buy: 50, name: {cs: "&a100 bodů zkušeností", en: "&a100 experience points", sk: "&a100 skúseností", de: "&a100 Erfahrungspunkte", pl: "&a100 punktów doświadczenia", es: "&a100 puntos de experiencia", fr: "&a100 points d'expérience", ru: "&a100 очков опыта"}, commands: ["xp add {player} 100 points"]}

@@ -8,13 +8,13 @@ GUI shop for Spigot/Paper 1.20.6+ (Java 21). Requires **Vault** and an economy p
 - 11 ready-made categories (blocks, ores, decor, gems, nether, redstone, farming, food, drops, fuel, misc) in `price.yml`
 - Fully configurable items: custom names, lore, per-item buy/sell price, buy-only or sell-only items
 - Main menu categories shown as player heads by nickname (global default + per-category nick); items can use heads too (nick, base64, texture URL or hash)
-- All GUI texts in CAPITAL LETTERS
+- All GUI texts in CAPITAL LETTERS (or small capitals ᴛɪᴍᴛᴏ), configurable style
 - Command items: run console commands on purchase (`{player}` placeholder), e.g. XP, ranks, kits
 - Dynamic pricing: buying raises the price, selling lowers it, slowly recovers over time (min/max limits)
 - Daily deals: rotating discounted items with configurable count, discount range and duration
 - `/sell hand`, `/sell all`, optional "sell all" button in the menu, `/worth` price check
 - Permission-based sell bonus (`failshop.sellmultiplier.<number>`)
-- Multi-language (bundled `en`, `cs`; add your own `lang/xx.yml`), per-language names in `price.yml`
+- 8 languages (`en`, `cs`, `sk`, `de`, `pl`, `es`, `fr`, `ru`; add your own `lang/xx.yml`), per-language names in `price.yml`
 - Transaction log (`transactions.log`), sounds on success/error, configurable currency symbol
 - Auto-update checker (Spigot/Spiget) with automatic download to `plugins/update/`
 - Tab completion, safe inventory handling (items that don't fit are dropped, items with NBT/meta are never sold)
@@ -29,10 +29,10 @@ git tag v1.0.0 && git push origin v1.0.0
 ```
 
 ## Setup
-- `config.yml` -> `language: en` or `cs` (files in `plugins/FailShop/lang/`, add your own `xx.yml`)
+- `config.yml` -> `language: en`, `cs`, `sk`, `de`, `pl`, `es`, `fr` or `ru` (files in `plugins/FailShop/lang/`, add your own `xx.yml`)
 - `price.yml` -> categories and prices, one line per block: `DIAMOND: {buy: 100, sell: 12}` (the old `shops.yml` is copied automatically)
 - Main menu categories are shown as player heads: `gui.category-head: "Nick"` in `config.yml` (default for all), `head: Nick` on a category in `price.yml` (per category). Items inside categories can use heads too (`gui.item-head` / `head:`), empty by default
-- All GUI texts are in CAPITAL LETTERS (`gui.uppercase-names`)
+- All GUI texts are in CAPITAL LETTERS by default, switch with `gui.text-style: uppercase | small-caps (ᴛɪᴍᴛᴏ) | normal`
 - `/shopadmin reload` applies changes
 
 ## Commands

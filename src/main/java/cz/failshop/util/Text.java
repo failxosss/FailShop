@@ -2,6 +2,7 @@ package cz.failshop.util;
 
 import org.bukkit.Material;
 
+import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -48,6 +49,41 @@ public final class Text {
             }
         }
         return sb.toString();
+    }
+
+    private static final String SC_FROM = "abcdefghijklmnopqrstuvwxyz";
+    private static final String SC_TO = "ᴀʙᴄᴅᴇꜰɢʜɪᴊᴋʟᴍɴᴏᴘǫʀꜱᴛᴜᴠᴡxʏᴢ";
+
+    /**
+     * Converts the visible text to small capitals (ᴛɪᴍᴛᴏ). Color codes are left untouched.
+     * Accents are removed first (the small-caps alphabet has no accented letters).
+     * Letters outside a-z (e.g. Cyrillic) are upper-cased instead.
+     */
+    public static String smallCaps(String s) {
+        if (s == null) return "";
+        StringBuilder sb = new StringBuilder(s.length());
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if ((c == '&' || c == '\u00a7') && i + 1 < s.length()) {
+                sb.append(c).append(s.charAt(i + 1));
+                i++;
+                continue;
+            }
+            char base = Normalizer.normalize(String.valueOf(c), Normalizer.Form.NFD).charAt(0);
+            int idx = SC_FROM.indexOf(Character.toLowerCase(base));
+            sb.append(idx >= 0 ? SC_TO.charAt(idx) : Character.toUpperCase(base));
+        }
+        return sb.toString();
+    }
+
+    /** Applies gui.text-style: "small-caps", "uppercase" or anything else = unchanged. */
+    public static String style(String s, String mode) {
+        if (mode == null) return s;
+        return switch (mode.toLowerCase(Locale.ROOT).trim()) {
+            case "small-caps", "smallcaps" -> smallCaps(s);
+            case "uppercase", "upper" -> upper(s);
+            default -> s;
+        };
     }
 
     public static String pretty(Material m) {
