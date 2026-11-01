@@ -1,0 +1,43 @@
+name: FailShop
+version: '1.0.0'
+main: cz.failshop.FailShop
+api-version: '1.20'
+description: Configurable GUI shop with Vault support, languages and auto-update
+depend: [Vault]
+
+commands:
+  shop:
+    description: Opens the shop
+    usage: /shop [category]
+    aliases: [obchod, fshop]
+    permission: failshop.use
+  sell:
+    description: Sells items from your hand or inventory
+    usage: /sell <hand|all>
+    permission: failshop.sell
+  worth:
+    description: Shows the shop price of the item in your hand
+    usage: /worth
+    permission: failshop.worth
+  shopadmin:
+    description: FailShop administration
+    usage: /shopadmin <reload|refresh-deals|reset-prices>
+    aliases: [fsa]
+    permission: failshop.admin
+
+permissions:
+  failshop.use:
+    description: Use /shop
+    default: true
+  failshop.sell:
+    description: Use /sell
+    default: true
+  failshop.worth:
+    description: Use /worth
+    default: true
+  failshop.admin:
+    description: Administration and update notifications
+    default: op
+  failshop.sellmultiplier.*:
+    description: "Sell bonus, e.g. failshop.sellmultiplier.1.5 gives +50% (highest one is used)"
+    default: false

@@ -1,0 +1,147 @@
+# =========================================
+#           FailShop - shops.yml
+# =========================================
+# categories:
+#   <id>:
+#     name: "TEXT"                     # or a map per language: {cs: "...", en: "..."}
+#     icon: GRASS_BLOCK                # material of the category button
+#     head: "<texture>"                # optional: custom head (base64 value, texture URL or texture hash)
+#     slot: 10                         # slot in the main menu (0-44), omit for automatic placement
+#     lore: ["&7Optional lines"]
+#     items:
+#       <id>:
+#         material: DIRT
+#         buy: 1.5                     # omit or -1 = cannot be bought
+#         sell: 0.1                    # omit or -1 = cannot be sold
+#         name: "&aCustom name"        # optional (string or per-language map), default = vanilla name
+#         lore: ["&7Optional"]         # optional
+#         head: "<texture>"            # optional, for material PLAYER_HEAD
+#         commands: ["give {player} ..."]   # optional: console commands run on purchase (item is then not given)
+#
+# Click behaviour: left = buy 1, shift+left = buy a stack,
+# right = sell 1, shift+right = sell all of that item.
+
+categories:
+  blocks:
+    name: {cs: "STAVEBNINY", en: "BUILDING BLOCKS"}
+    icon: GRASS_BLOCK
+    slot: 10
+    items:
+      dirt: {material: DIRT, buy: 1.5, sell: 0.1}
+      cobblestone: {material: COBBLESTONE, buy: 2, sell: 0.2}
+      stone: {material: STONE, buy: 3, sell: 0.3}
+      oak-log: {material: OAK_LOG, buy: 4, sell: 0.5}
+      sand: {material: SAND, buy: 3, sell: 0.3}
+      glass: {material: GLASS, buy: 4, sell: 0.4}
+      bricks: {material: BRICKS, buy: 6, sell: 0.6}
+      stone-bricks: {material: STONE_BRICKS, buy: 4, sell: 0.4}
+  ores:
+    name: {cs: "RUDY", en: "ORES"}
+    icon: DEEPSLATE_DIAMOND_ORE
+    slot: 11
+    items:
+      coal: {material: COAL, buy: 4, sell: 0.5}
+      copper: {material: COPPER_INGOT, buy: 5, sell: 0.6}
+      iron: {material: IRON_INGOT, buy: 10, sell: 1.5}
+      gold: {material: GOLD_INGOT, buy: 25, sell: 3}
+      lapis: {material: LAPIS_LAZULI, buy: 6, sell: 0.8}
+  decor:
+    name: {cs: "DEKORACE", en: "DECORATION"}
+    icon: LANTERN
+    slot: 12
+    items:
+      glass-pane: {material: GLASS_PANE, buy: 1.5, sell: 0.15}
+      white-wool: {material: WHITE_WOOL, buy: 5, sell: 0.5}
+      flower-pot: {material: FLOWER_POT, buy: 4, sell: 0.4}
+      painting: {material: PAINTING, buy: 10, sell: 1}
+      item-frame: {material: ITEM_FRAME, buy: 8, sell: 0.8}
+      lantern: {material: LANTERN, buy: 12, sell: 1.2}
+  gems:
+    name: {cs: "DRAHOKAMY", en: "GEMS"}
+    icon: DIAMOND_BLOCK
+    slot: 14
+    items:
+      diamond: {material: DIAMOND, buy: 100, sell: 12}
+      emerald: {material: EMERALD, buy: 80, sell: 10}
+      amethyst: {material: AMETHYST_SHARD, buy: 15, sell: 2}
+      quartz: {material: QUARTZ, buy: 12, sell: 1.5}
+  nether:
+    name: {cs: "NETHER", en: "NETHER"}
+    icon: OBSIDIAN
+    slot: 15
+    items:
+      netherrack: {material: NETHERRACK, buy: 1, sell: 0.1}
+      nether-bricks: {material: NETHER_BRICKS, buy: 4, sell: 0.4}
+      soul-sand: {material: SOUL_SAND, buy: 5, sell: 0.5}
+      glowstone-dust: {material: GLOWSTONE_DUST, buy: 8, sell: 1}
+      nether-wart: {material: NETHER_WART, buy: 6, sell: 0.7}
+      blaze-rod: {material: BLAZE_ROD, buy: 30, sell: 4}
+  redstone:
+    name: {cs: "REDSTONE", en: "REDSTONE"}
+    icon: REDSTONE_BLOCK
+    slot: 16
+    items:
+      redstone: {material: REDSTONE, buy: 5, sell: 0.6}
+      repeater: {material: REPEATER, buy: 12, sell: 1.2}
+      comparator: {material: COMPARATOR, buy: 20, sell: 2}
+      piston: {material: PISTON, buy: 25, sell: 2.5}
+      observer: {material: OBSERVER, buy: 25, sell: 2.5}
+      hopper: {material: HOPPER, buy: 40, sell: 4}
+  farming:
+    name: {cs: "FARMÁŘ", en: "FARMING"}
+    icon: HAY_BLOCK
+    slot: 28
+    items:
+      wheat: {material: WHEAT, buy: 3, sell: 0.4}
+      seeds: {material: WHEAT_SEEDS, buy: 1, sell: 0.1}
+      carrot: {material: CARROT, buy: 3, sell: 0.4}
+      potato: {material: POTATO, buy: 3, sell: 0.4}
+      sugar-cane: {material: SUGAR_CANE, buy: 3, sell: 0.3}
+      pumpkin: {material: PUMPKIN, buy: 6, sell: 0.8}
+      melon: {material: MELON_SLICE, buy: 2, sell: 0.2}
+      bone-meal: {material: BONE_MEAL, buy: 4, sell: 0.5}
+  food:
+    name: {cs: "JÍDLO", en: "FOOD"}
+    icon: CAKE
+    slot: 29
+    items:
+      bread: {material: BREAD, buy: 6, sell: 0.8}
+      steak: {material: COOKED_BEEF, buy: 10, sell: 1.2}
+      porkchop: {material: COOKED_PORKCHOP, buy: 10, sell: 1.2}
+      chicken: {material: COOKED_CHICKEN, buy: 8, sell: 1}
+      apple: {material: APPLE, buy: 5, sell: 0.5}
+      baked-potato: {material: BAKED_POTATO, buy: 5, sell: 0.6}
+      golden-carrot: {material: GOLDEN_CARROT, buy: 15, sell: 2}
+  drops:
+    name: {cs: "DROPY Z MOBŮ", en: "MOB DROPS"}
+    icon: BONE_BLOCK
+    slot: 30
+    items:
+      bone: {material: BONE, buy: 4, sell: 0.5}
+      string: {material: STRING, buy: 4, sell: 0.5}
+      gunpowder: {material: GUNPOWDER, buy: 8, sell: 1}
+      spider-eye: {material: SPIDER_EYE, buy: 5, sell: 0.6}
+      rotten-flesh: {material: ROTTEN_FLESH, buy: 2, sell: 0.2}
+      ender-pearl: {material: ENDER_PEARL, buy: 50, sell: 6}
+      slime-ball: {material: SLIME_BALL, buy: 10, sell: 1.2}
+  fuel:
+    name: {cs: "PALIVO", en: "FUEL"}
+    icon: COAL_BLOCK
+    slot: 32
+    items:
+      coal: {material: COAL, buy: 4, sell: 0.5}
+      charcoal: {material: CHARCOAL, buy: 3, sell: 0.4}
+      coal-block: {material: COAL_BLOCK, buy: 36, sell: 4.5}
+      lava-bucket: {material: LAVA_BUCKET, buy: 40, sell: 5}
+  misc:
+    name: {cs: "RŮZNÉ", en: "MISC"}
+    icon: BARREL
+    slot: 33
+    items:
+      chest: {material: CHEST, buy: 10, sell: 1}
+      barrel: {material: BARREL, buy: 10, sell: 1}
+      crafting-table: {material: CRAFTING_TABLE, buy: 6, sell: 0.6}
+      furnace: {material: FURNACE, buy: 8, sell: 0.8}
+      anvil: {material: ANVIL, buy: 60, sell: 6}
+      name-tag: {material: NAME_TAG, buy: 40, sell: 4}
+      xp-100: {material: EXPERIENCE_BOTTLE, buy: 50, name: {cs: "&a100 bodů zkušeností", en: "&a100 experience points"}, commands: ["xp add {player} 100 points"]}
